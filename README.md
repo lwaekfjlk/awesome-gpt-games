@@ -1,4 +1,4 @@
-# 🕹️ GPT4Game - Game Development with GPT-4
+# 🕹️ GPT4Game - Create one game in one prompt with GPT-4💪
 
 🚀 GPT-4's incredible code generation capabilities enable game development using simple text prompts.
 
