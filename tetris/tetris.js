@@ -1,233 +1,190 @@
-const canvas = document.getElementById('tetris');
-const context = canvas.getContext('2d');
-context.scale(20, 20);
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = 320;
+canvas.height = 640;
+document.body.appendChild(canvas);
 
-function arenaSweep() {
-    let rowCount = 1;
-    outer: for (let y = arena.length - 1; y > 0; --y) {
-        for (let x = 0; x < arena[y].length; ++x) {
-            if (arena[y][x] === 0) {
-                continue outer;
-            }
+const scale = 20;
+const colors = ['red', 'blue', 'green', 'purple', 'orange', 'yellow', 'cyan'];
+let score = 0;
+
+class Piece {
+  constructor(shape, color) {
+    this.shape = shape;
+    this.color = color;
+    this.x = Math.floor(canvas.width / scale / 2) - 2;
+    this.y = 0;
+  }
+
+  draw() {
+    this.shape.forEach((row, y) => {
+      row.forEach((value, x) => {
+        if (value) {
+          ctx.fillStyle = this.color;
+          ctx.fillRect((this.x + x) * scale, (this.y + y) * scale, scale, scale);
+          ctx.strokeStyle = 'black';
+          ctx.strokeRect((this.x + x) * scale, (this.y + y) * scale, scale, scale);
         }
-        const row = arena.splice(y, 1)[0].fill(0);
-        arena.unshift(row);
-        ++y;
+      });
+    });
+  }
+}
 
-        player.score += rowCount * rowCount * 100;
-        rowCount++;
+const pieces = [
+  [
+    [0, 0, 0],
+    [1, 1, 1],
+    [0, 1, 0],
+  ],
+  [
+    [0, 1, 0],
+    [1, 1, 1],
+    [0, 0, 0],
+  ],
+  [
+    [0, 1, 1],
+    [0, 1, 1],
+  ],
+  [
+    [1, 1, 0],
+    [0, 1, 1],
+  ],
+  [
+    [0, 1, 1],
+    [1, 1, 0],
+  ],
+  [
+    [1, 1],
+    [1, 1],
+  ],
+  [
+    [1, 1, 1, 1],
+    [0, 0, 0, 0],
+  ],
+];
+
+function getRandomPiece() {
+  const shape = pieces[Math.floor(Math.random() * pieces.length)];
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  return new Piece(shape, color);
+}
+
+let board = Array.from({ length: canvas.height / scale }, () => Array(canvas.width / scale).fill(0));
+let piece = getRandomPiece();
+
+function checkCollision(piece, board, x, y) {
+  for (let row = 0; row < piece.shape.length; row++) {
+    for (let col = 0; col < piece.shape[row].length; col++) {
+      if (piece.shape[row][col] && (board[row + y] && board[row + y][col + x]) !== 0) {
+        return true;
+      }
     }
+  }
+  return false;
 }
 
-function collide(arena, player) {
-    const [m, o] = [player.matrix, player.pos];
-    for (let y = 0; y < m.length; ++y) {
-        for (let x = 0; x < m[y].length; ++x) {
-            if (m[y][x] !== 0 && (arena[y + o.y] && arena[y + o.y][x + o.x]) !== 0) {
-                return true;
-            }
-        }
+function merge(piece, board) {
+  piece.shape.forEach((row, y) => {
+    row.forEach((value, x) => {
+      if (value) {
+        board[y + piece.y][x + piece.x] = piece.color;
+      }
+    });
+  });
+}
+
+function removeFullRows() {
+  let rowsRemoved = 0;
+  outer: for (let y = board.length - 1; y >= 0; --y) {
+    for (let x = 0; x < board[y].length; ++x) {
+      if (!board[y][x]) {
+        continue outer;
+      }
     }
-    return false;
+
+    const row = board.splice(y, 1)[0].fill(0);
+    board.unshift(row);
+    ++y;
+    rowsRemoved++;
+  }
+
+  if (rowsRemoved > 0) {
+    score += rowsRemoved * rowsRemoved * 100;
+  }
 }
 
-function createMatrix(w, h) {
-    const matrix = [];
-    while (h--) {
-        matrix.push(new Array(w).fill(0));
-    }
-    return matrix;
-}
 
-function createPiece(type) {
-    if (type === 'T') {
-        return [
-            [1, 1, 1],
-            [0, 1, 0],
-            [0, 0, 0],
-        ];
-    } else if (type === 'O') {
-        return [
-            [2, 2],
-            [2, 2],
-        ];
-    } else if (type === 'L') {
-        return [
-            [0, 3, 0],
-            [0, 3, 0],
-            [0, 3, 3],
-        ];
-    } else if (type === 'J') {
-        return [
-            [0, 4, 0],
-            [0, 4, 0],
-            [4, 4, 0],
-        ];
-    } else if (type === 'I') {
-        return [
-            [0, 5, 0, 0],
-            [0, 5, 0, 0],
-            [0, 5, 0, 0],
-            [0, 5, 0, 0],
-        ];
-    } else if (type === 'S') {
-        return [
-            [0, 6, 6],
-            [6, 6, 0],
-            [0, 0, 0],
-        ];
-    } else if (type === 'Z') {
-        return [
-            [7, 7, 0],
-            [0, 7, 7],
-            [0, 0, 0],
-        ];
-    }
-}
+function drawBoard() {
+  ctx.fillStyle = 'white';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-function draw() {
-    context.fillStyle = '#000';
-    context.fillRect(0, 0, canvas.width, canvas.height);
+  board.forEach((row, y) => {
+    row.forEach((value, x) => {
+      if (value) {
+        ctx.fillStyle = value;
+        ctx.fillRect(x * scale, y * scale, scale, scale);
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(x * scale, y * scale, scale, scale);
+      }
+    });
+  });
 
-    drawMatrix(arena, {x: 0, y: 0});
-    drawMatrix(player.matrix, player.pos);
-}
-
-function drawMatrix(matrix, offset) {
-    matrix.forEach((row, y) => {
-        row.forEach((value, x) => {
-if (value !== 0) {
-context.fillStyle = colors[value];
-context.fillRect(x + offset.x, y + offset.y, 1, 1);
-}
-});
-});
-}
-
-function merge(arena, player) {
-player.matrix.forEach((row, y) => {
-row.forEach((value, x) => {
-if (value !== 0) {
-arena[y + player.pos.y][x + player.pos.x] = value;
-}
-});
-});
-}
-
-function playerDrop() {
-player.pos.y++;
-if (collide(arena, player)) {
-player.pos.y--;
-merge(arena, player);
-playerReset();
-arenaSweep();
-updateScore();
-}
-dropCounter = 0;
-}
-
-function playerMove(dir) {
-player.pos.x += dir;
-if (collide(arena, player)) {
-player.pos.x -= dir;
-}
-}
-
-function playerReset() {
-const pieces = 'ILJOTSZ';
-player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
-player.pos.y = 0;
-player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
-
-if (collide(arena, player)) {
-    arena.forEach(row => row.fill(0));
-    player.score = 0;
-    updateScore();
-}
-}
-
-function playerRotate(dir) {
-const pos = player.pos.x;
-let offset = 1;
-rotate(player.matrix, dir);
-
-while (collide(arena, player)) {
-    player.pos.x += offset;
-    offset = -(offset + (offset > 0 ? 1 : -1));
-    if (offset > player.matrix[0].length) {
-        rotate(player.matrix, -dir);
-        player.pos.x = pos;
-        return;
-    }
-}
-}
-
-function rotate(matrix, dir) {
-for (let y = 0; y < matrix.length; ++y) {
-for (let x = 0; x < y; ++x) {
-[matrix[x][y], matrix[y][x]] = [matrix[y][x], matrix[x][y]];
-}
-}
-
-if (dir > 0) {
-    matrix.forEach(row => row.reverse());
-} else {
-    matrix.reverse();
-}
-}
-
-let dropCounter = 0;
-let dropInterval = 1000;
-
-let lastTime = 0;
-function update(time = 0) {
-const deltaTime = time - lastTime;
-lastTime = time;
-
-dropCounter += deltaTime;
-if (dropCounter > dropInterval) {
-    playerDrop();
-}
-
-draw();
-requestAnimationFrame(update);
+  piece.draw();
 }
 
 function updateScore() {
-document.getElementById('score').innerText = player.score;
+  const scoreElement = document.getElementById('score');
+  if (scoreElement) {
+    scoreElement.textContent = `Score: ${score}`;
+  }
 }
 
-const colors = [
-null,
-'#FF0D72',
-'#0DC2FF',
-'#0DFF72',
-'#F538FF',
-'#FF8E0D',
-'#FFE138',
-'#3877FF',
-];
-
-const arena = createMatrix(12, 20);
-
-const player = {
-pos: {x: 0, y: 0},
-matrix: null,
-score: 0,
-};
-
-document.addEventListener('keydown', event => {
-if (event.key === 'a') {
-playerMove(-1);
-} else if (event.key === 'd') {
-playerMove(1);
-} else if (event.key === 's') {
-playerDrop();
-} else if (event.key === 'w') {
-playerRotate(-1);
+function movePiece(dir) {
+  if (!checkCollision(piece, board, piece.x + dir, piece.y)) {
+    piece.x += dir;
+  }
 }
+
+function dropPiece() {
+  if (!checkCollision(piece, board, piece.x, piece.y + 1)) {
+    piece.y++;
+  } else {
+    merge(piece, board);
+    removeFullRows();
+    piece = getRandomPiece();
+
+    if (checkCollision(piece, board, piece.x, piece.y)) {
+      // Game over
+      board = Array.from({ length: canvas.height / scale }, () => Array(canvas.width / scale).fill(0));
+      score = 0;
+    }
+  }
+}
+
+function rotatePiece() {
+  const tempMatrix = piece.shape[0].map((_, i) => piece.shape.map(row => row[i])).reverse();
+  if (!checkCollision({ ...piece, shape: tempMatrix }, board, piece.x, piece.y)) {
+    piece.shape = tempMatrix;
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'a') {
+    movePiece(-1);
+  } else if (event.key === 'd') {
+    movePiece(1);
+  } else if (event.key === 's') {
+    dropPiece();
+  } else if (event.key === 'w') {
+    rotatePiece();
+  }
 });
 
-playerReset();
-updateScore();
-update();
+function update() {
+  drawBoard();
+  dropPiece();
+  updateScore();
+}
+
+setInterval(update, 1000 / 2);
+
