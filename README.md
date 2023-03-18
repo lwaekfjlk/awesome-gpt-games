@@ -17,6 +17,14 @@ Game Demo:
 
 ![tetris](gifs/tetris.gif)
 
+### Snake
+
+Prompt: 
+> You are a game developer. I want you to generate a Snake-like game. Players can use the arrow keys to control the direction of the snake. Moreover, the snake is green and its food is red. The snake grows when it eats the food (red square) and dies if it hits the canvas boundaries or itself. At the beginning, the snake appears at the middle of the screen at the beginning.  Its food (red square) is randomly generated at first and continues generate when some of the food is eaten. You should make sure that there is always some food on the screen. Generate the JS file first.
+
+Game Demo: 
+
+![snake](./gifs/snake.gif)
 
 ### Conway's Game of Life
 
@@ -38,14 +46,7 @@ Game Demo:
 
 ![pong](./gifs/pong.gif)
 
-### Snake
 
-Prompt: 
-> You are a game developer. I want you to generate a Snake-like game. Players can use the arrow keys to control the direction of the snake. Moreover, the snake is green and its food is red. The snake grows when it eats the food (red square) and dies if it hits the canvas boundaries or itself. At the beginning, the snake appears at the middle of the screen at the beginning.  Its food (red square) is randomly generated at first and continues generate when some of the food is eaten. You should make sure that there is always some food on the screen. Generate the JS file first.
-
-Game Demo: 
-
-![snake](./gifs/snake.gif)
 
 
 
