@@ -10,11 +10,13 @@
 
 
 
-[Tetris](#tetris)
-[Snake](#snake)
-[Gokomu](#gokomu)
-[Conway's Game of Life](#conway-s-game-of-life)
-[Pong](#pong)
+Currently supported games:
+
+* [Tetris](#tetris)
+* [Snake](#snake)
+* [Gokomu](#gokomu)
+* [Conway's Game of Life](#conway-s-game-of-life)
+* [Pong](#pong)
 
 
 
