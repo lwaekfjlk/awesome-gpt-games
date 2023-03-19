@@ -8,6 +8,16 @@
 
 😊 Let's explore what is the limitation of GPT-4 for game development!
 
+
+
+[Tetris](#tetris)
+[Snake](#snake)
+[Gokomu](#gokomu)
+[Conway's Game of Life](#conway-s-game-of-life)
+[Pong](#pong)
+
+
+
 ### Tetris
 
 Prompt: 
@@ -17,6 +27,8 @@ Game Demo:
 
 ![tetris](gifs/tetris.gif)
 
+
+
 ### Snake
 
 Prompt: 
@@ -25,6 +37,17 @@ Prompt:
 Game Demo: 
 
 ![snake](./gifs/snake.gif)
+
+### Gokomu
+
+Prompt: 
+
+> You are a game developer now. Generate a complete implement of the gokomu game for two player with HTML, CSS and Javascript. Players alternate turns placing a stone of their color on an empty intersection. Black plays first. The winner is the first player to form an unbroken line of five stones of their color horizontally, vertically, or diagonally. If the board is completely filled and no one can make a line of 5 stones, then it will result in a draw. The board size is 19 x 19. Please generate the code and the tree structure of the project.
+
+Game Demo:
+![game_of_life](./gifs/gokomu.gif)
+
+
 
 ### Conway's Game of Life
 
