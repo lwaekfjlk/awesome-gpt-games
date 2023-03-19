@@ -27,7 +27,7 @@ Prompt:
 
 Game Demo:
 
-![tetris](gifs/tetris.gif)
+<img src="./gifs/tetris.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 
 
@@ -38,7 +38,7 @@ Prompt:
 
 Game Demo: 
 
-![snake](./gifs/snake.gif)
+<img src="./gifs/snake.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 ### Gokomu
 
@@ -47,7 +47,8 @@ Prompt:
 > You are a game developer now. Generate a complete implement of the gokomu game for two player with HTML, CSS and Javascript. Players alternate turns placing a stone of their color on an empty intersection. Black plays first. The winner is the first player to form an unbroken line of five stones of their color horizontally, vertically, or diagonally. If the board is completely filled and no one can make a line of 5 stones, then it will result in a draw. The board size is 19 x 19. Please generate the code and the tree structure of the project.
 
 Game Demo:
-![game_of_life](./gifs/gokomu.gif)
+
+<img src="./gifs/gokomu.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 
 
@@ -58,7 +59,7 @@ Prompt:
 
 Game Demo:
 
-![game_of_life](./gifs/game_of_life.gif)
+<img src="./gifs/game_of_life.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 
 
@@ -69,7 +70,7 @@ Prompt:
 
 Game Demo:
 
-![pong](./gifs/pong.gif)
+<img src="./gifs/pong.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 
 
