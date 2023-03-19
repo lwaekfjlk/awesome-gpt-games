@@ -19,6 +19,11 @@ Currently supported games:
 * [Pong](#pong)
 * [Breakout Clone](#breakout-clone)
 
+Tips:
+
+* More complicated games include more possibilities, which means that we need to generate multiple times using the prompt to get a correct game.
+* If the length of the code exceeds the limitation of one time generation, we just use "continue generating" to get the full code.
+
 
 
 ### Tetris
@@ -80,5 +85,6 @@ Prompt:
 > You are a game developer. You need to generate a Breakout clone game that can be run in the browser. You need to make sure that the speed of the ball is reasonable for players to catch. The player should move their mouse to control the board. I want the game to show restart automatically when we delete all the bricks or the ball drops. Generate the JS first.
 
 Game Demo:
+
 <img src="./gifs/breakout_clone.gif" width="400"  style="display: block; margin: 0 auto"/>
 
