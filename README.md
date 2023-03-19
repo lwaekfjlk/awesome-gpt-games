@@ -17,6 +17,7 @@ Currently supported games:
 * [Gokomu](#gokomu)
 * [Conway's Game of Life](#conway-s-game-of-life)
 * [Pong](#pong)
+* [Breakout Clone](#breakout-clone)
 
 
 
@@ -72,7 +73,12 @@ Game Demo:
 
 <img src="./gifs/pong.gif" width="400"  style="display: block; margin: 0 auto"/>
 
+### Breakout Clone
 
+Prompt:
 
+> You are a game developer. You need to generate a Breakout clone game that can be run in the browser. You need to make sure that the speed of the ball is reasonable for players to catch. The player should move their mouse to control the board. I want the game to show restart automatically when we delete all the bricks or the ball drops. Generate the JS first.
 
+Game Demo:
+<img src="./gifs/breakout_clone.gif" width="400"  style="display: block; margin: 0 auto"/>
 
