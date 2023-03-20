@@ -38,7 +38,9 @@ Prompt:
 > As a professional game developer, your task is to create a complete code for a pixel-style shooting zombie game using Javascript, CSS, and HTML. The player's movement should be controlled by the WASD keys, while the spacebar is used to shoot and QE are used to switch weapons. However, the number of bullets in each weapon is limited. There are ten different types of weapons in the game: AK-47 assault rifle, MP5 submachine gun, Glock pistol, Remington 870 shotgun, Barrett M82A1 sniper rifle, RPG grenade launcher, Mossberg 500 shotgun, M249 light machine gun, M72 LAW rocket launcher, GAU-17/A machine gun. There are two types of zombies in the game: gray normal zombies and red demon zombies. The player will die if attacked by normal zombies ten times or demon zombies four times. Additionally, there will be randomly generated red squares on the field that can replenish the player's health and ammunition. Your response should include well-commented code that implements all of these features with attention to detail and accuracy. Please ensure that your code provides clear instructions on how to play the game and includes appropriate error handling measures.
 
 Game Demo:
-Amazing! Even support diverse weapon change.
+
+Amazing! Even support diverse weapon change. (Use GPT-4 + [cursor.co](https://cursor.co/))
+
 <img src="./gifs/zombies.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 
