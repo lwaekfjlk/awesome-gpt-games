@@ -14,6 +14,7 @@
 
 🚀 Supported games:
 
+* [Zombie Shoot](#zombie-shoot)
 * [Tetris](#tetris)
 * [Snake](#snake)
 * [Gokomu](#gokomu)
@@ -28,9 +29,26 @@
 
 
 
+### Zombie Shoot
+
+contributed by **[Naruto9811](https://github.com/Naruto9811)** 
+
+Prompt:
+
+> As a professional game developer, your task is to create a complete code for a pixel-style shooting zombie game using Javascript, CSS, and HTML. The player's movement should be controlled by the WASD keys, while the spacebar is used to shoot and QE are used to switch weapons. However, the number of bullets in each weapon is limited. There are ten different types of weapons in the game: AK-47 assault rifle, MP5 submachine gun, Glock pistol, Remington 870 shotgun, Barrett M82A1 sniper rifle, RPG grenade launcher, Mossberg 500 shotgun, M249 light machine gun, M72 LAW rocket launcher, GAU-17/A machine gun. There are two types of zombies in the game: gray normal zombies and red demon zombies. The player will die if attacked by normal zombies ten times or demon zombies four times. Additionally, there will be randomly generated red squares on the field that can replenish the player's health and ammunition. Your response should include well-commented code that implements all of these features with attention to detail and accuracy. Please ensure that your code provides clear instructions on how to play the game and includes appropriate error handling measures.
+
+Game Demo:
+
+<img src="./gifs/zombies.gif" width="400"  style="display: block; margin: 0 auto"/>
+
+
+
 ### Tetris
 
+contributed by **[Jasonqi146](https://github.com/Jasonqi146)**
+
 Prompt: 
+
 > You are a game developer. I want you to generate a simple code for a standard Tetris game that can run on the web page with HTML, CSS, and JS. Please also implement collision detection. When the piece touches the bottom, it stays there, and then another piece is generated. Please also implement the following game logic. Whenever a row is filled, this row is eliminated, and the player gets 100 scores. If x rows are eliminated together, the player gets x*x*100 scores for each row. The key listeners are written this way: ‘a’ for moving left, ‘d’ for moving right, ‘s’ for moving down, and ‘w’ for rotating. Please also implement a scoreboard that shows players their scores. I want random colors on pieces. Don't worry about exceeding the word limit, you can always pick up from where you left over. Generate the JS first.
 
 Game Demo:
@@ -41,7 +59,10 @@ Game Demo:
 
 ### Snake
 
+contributed by **[lwaekfjlk](https://github.com/lwaekfjlk)**
+
 Prompt: 
+
 > You are a game developer. I want you to generate a Snake-like game. Players can use the arrow keys to control the direction of the snake. Moreover, the snake is green and its food is red. The snake grows when it eats the food (red square) and dies if it hits the canvas boundaries or itself. At the beginning, the snake appears at the middle of the screen at the beginning.  Its food (red square) is randomly generated at first and continues generate when some of the food is eaten. You should make sure that there is always some food on the screen. Generate the JS file first.
 
 Game Demo: 
@@ -49,6 +70,8 @@ Game Demo:
 <img src="./gifs/snake.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 ### Gokomu
+
+contributed by **[Naruto9811](https://github.com/Naruto9811)**
 
 Prompt: 
 
@@ -62,7 +85,10 @@ Game Demo:
 
 ### Conway's Game of Life
 
+contributed by **[lwaekfjlk](https://github.com/lwaekfjlk)**
+
 Prompt: 
+
 > You are a game developer, I want you to generate Conway's Game of Life that can run on the web page with HTML, CSS, and JS. I can use the mouse to set the initial positions of the cells in the game and press space to start or pause the game. The cells change their status every 0.5 seconds. Generate the JS file first. Generate HTML and CSS after that.
 
 Game Demo:
@@ -73,7 +99,10 @@ Game Demo:
 
 ### Pong
 
+contributed by **[lwaekfjlk](https://github.com/lwaekfjlk)**
+
 Prompt: 
+
 > You are a game developer. I want you to build a pong-like game that can run on the browser. People can control the position of the board.
 
 Game Demo:
@@ -81,6 +110,8 @@ Game Demo:
 <img src="./gifs/pong.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 ### Breakout Clone
+
+contributed by **[lwaekfjlk](https://github.com/lwaekfjlk)**
 
 Prompt:
 
