@@ -22,11 +22,11 @@
 * [Pong](#pong)
 * [Breakout Clone](#breakout-clone)
 
-🔍 Discovered Prompt Tips:
+🔍 Discovered Tips:
 
-* More complicated games include more possibilities, which means that we need to generate multiple times using the prompt to get a correct game.
-* If the length of the code exceeds the limitation of one time generation, we just use "continue generating" to get the full code.
-
+* When writing prompts, more complicated games include more possibilities, which means that we need to generate multiple times using the prompt to get a correct game.
+* When writing prompts, if the length of the code exceeds the limitation of one time generation, we just use "continue generating" to get the full code.
+* Using GPT-4 to build the basic architecture and using cursor.co  to fill the details can be amazingly great.
 
 
 ### Zombie Shoot
