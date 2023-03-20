@@ -39,7 +39,7 @@ Prompt:
 
 Game Demo:
 
-Amazing! Even support diverse weapon change. (Use GPT-4 + [cursor.so](https://cursor.so/))
+Amazing! Even support diverse weapon change. (Use GPT-4 + [cursor.so](https://www.cursor.so/))
 
 <img src="./gifs/zombies.gif" width="400"  style="display: block; margin: 0 auto"/>
 
