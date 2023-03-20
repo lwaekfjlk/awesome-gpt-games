@@ -1,5 +1,7 @@
 # 🕹️ Awesome GPT Games🔥
 
+🎆 EVERYONE CAN BE A GAME DEVELOPER WITH GPT!
+
 💥 GPT-4's incredible code generation capabilities enable game development using simple text prompts.
 
 🎮 We try to gather all text prompts that can generate entertaining games in one shot.
