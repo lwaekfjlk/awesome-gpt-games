@@ -1,16 +1,16 @@
-# 🕹️ Awesome GPT Game🔥
+# 🕹️ Awesome GPT Games🔥
 
-🚀 GPT-4's incredible code generation capabilities enable game development using simple text prompts.
+💥 GPT-4's incredible code generation capabilities enable game development using simple text prompts.
 
 🎮 We try to gather all text prompts that can generate entertaining games in one shot.
 
-🌟 Feel free to star, submit PRs, and contribute more engaging games to our collection.
+🌟 Feel free to submit PRs. We need more cool game ideas!
 
-😊 Let's explore what is the limitation of GPT-4 for game development!
+🧪 Let's explore what is the boundary of GPT-4 for game development!
 
 
 
-Currently supported games:
+🚀 Supported games:
 
 * [Tetris](#tetris)
 * [Snake](#snake)
@@ -19,7 +19,7 @@ Currently supported games:
 * [Pong](#pong)
 * [Breakout Clone](#breakout-clone)
 
-Tips:
+🔍 Discovered Prompt Tips:
 
 * More complicated games include more possibilities, which means that we need to generate multiple times using the prompt to get a correct game.
 * If the length of the code exceeds the limitation of one time generation, we just use "continue generating" to get the full code.
