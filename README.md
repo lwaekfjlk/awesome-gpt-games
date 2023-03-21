@@ -19,7 +19,7 @@
 * [Tetris](#tetris)
 * [Snake](#snake)
 * [Gokomu](#gokomu)
-* [Conway's Game of Life](#conway-s-game-of-life)
+* [Game of Life](#conway-s-game-of-life)
 * [Pong](#pong)
 * [Breakout Clone](#breakout-clone)
 
@@ -100,7 +100,7 @@ Game Demo:
 
 
 
-### Conway's Game of Life
+### Game of Life
 
 contributed by **[lwaekfjlk](https://github.com/lwaekfjlk)**
 
