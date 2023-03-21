@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacman Game</title>
+  <style>
+    /* Add your CSS here */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #222;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    canvas {
+      border: 1px solid #fff;
+    }
+
+    #score {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    #restart {
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span id="score">0</span>
+    <canvas id="game" width="600" height="600"></canvas>
+    <button id="restart">Restart</button>
+  </div>
+  <script src="pacman.js"></script>
+</body>
+</html>
