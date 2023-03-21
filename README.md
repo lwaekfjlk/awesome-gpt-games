@@ -15,10 +15,11 @@
 🚀 Supported games:
 
 * [Zombie Shoot](#zombie-shoot)
+* [Pacman](#pacman)
 * [Tetris](#tetris)
 * [Snake](#snake)
 * [Gokomu](#gokomu)
-* [Conway's Game of Life](#conway-s-game-of-life)
+* [Game of Life](#conway-s-game-of-life)
 * [Pong](#pong)
 * [Breakout Clone](#breakout-clone)
 
@@ -42,6 +43,20 @@ Game Demo:
 Amazing! Even support diverse weapon change. (Use GPT-4 + [cursor.so](https://www.cursor.so/))
 
 <img src="./gifs/zombies.gif" width="400"  style="display: block; margin: 0 auto"/>
+
+
+
+### Pacman
+
+contributed by **[Jasonqi146](https://github.com/Jasonqi146)**
+
+Prompt:
+
+> You are a game developer. I want you to generate a simple code for a standard Pacman game that can run on the web page with HTML, CSS, and JS. Please also implement collision detection. The packman is a yellow icon, and its goal is to eat treats. Each treat gives the player 10 scores. Add walls to the map so that players should use extra moves to eat treat. I want 10 treats on the map. I also want a scoreboard that shows what score the player gets. The Pacman never stops moving but can be turned by the player. The key mapping will be: 'a' for turning left, 'd' for turning right, 'w' for turning up, and 'd' for turning down. The packman is chased by a red monster that follows it. If the red monster touches the packman, or the packman touches the border of the map, game over. Also, add a button for the player to start over. Each time starting over randomly regenerates walls and treats. Don't worry about exceeding the word limit, you can always pick up from where you left over. Generate the JS first.
+
+Game Demo:
+
+<img src="./gifs/pacman.gif" width="400"  style="display: block; margin: 0 auto"/>
 
 
 
@@ -85,7 +100,7 @@ Game Demo:
 
 
 
-### Conway's Game of Life
+### Game of Life
 
 contributed by **[lwaekfjlk](https://github.com/lwaekfjlk)**
 
