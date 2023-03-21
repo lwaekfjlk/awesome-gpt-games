@@ -19,7 +19,7 @@ const pacman = {
 const monster = {
   x: tileSize * 17,
   y: tileSize * 17,
-  speed: 220,
+  speed: 300,
   lastMove: Date.now(),
 };
 
@@ -99,9 +99,45 @@ function updatePacman() {
   }
 }
 
+// Change monster direction when stuck on a wall
+function changeMonsterDirection() {
+  const directions = [
+    { dx: tileSize, dy: 0 },
+    { dx: -tileSize, dy: 0 },
+    { dx: 0, dy: tileSize },
+    { dx: 0, dy: -tileSize },
+  ];
+
+  const availableDirections = directions.filter((direction) => {
+    const newX = monster.x + direction.dx;
+    const newY = monster.y + direction.dy;
+
+    if (newX < 0 || newY < 0 || newX >= canvas.width || newY >= canvas.height) {
+      return false;
+    }
+
+    for (const wall of walls) {
+      if (newX === wall.x && newY === wall.y) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  if (availableDirections.length > 0) {
+    const randomDirection = availableDirections[Math.floor(Math.random() * availableDirections.length)];
+    monster.x += randomDirection.dx;
+    monster.y += randomDirection.dy;
+  }
+}
+
+// Update updateMonster function
 function updateMonster() {
   const now = Date.now();
   if (now - monster.lastMove > monster.speed) {
+    const prevX = monster.x;
+    const prevY = monster.y;
     const dx = Math.sign(pacman.x - monster.x) * tileSize;
     const dy = Math.sign(pacman.y - monster.y) * tileSize;
     if (Math.abs(dx) > Math.abs(dy)) {
@@ -109,6 +145,29 @@ function updateMonster() {
     } else {
       monster.y += dy;
     }
+
+    // Check collisions with walls
+    let isStuckOnWall = false;
+    for (const wall of walls) {
+      if (monster.x === wall.x && monster.y === wall.y) {
+        monster.x = prevX;
+        monster.y = prevY;
+        isStuckOnWall = true;
+        break;
+      }
+    }
+
+    // Check collisions with border
+    if (monster.x < 0 || monster.y < 0 || monster.x >= canvas.width || monster.y >= canvas.height) {
+      monster.x = prevX;
+      monster.y = prevY;
+      isStuckOnWall = true;
+    }
+
+    if (isStuckOnWall) {
+      changeMonsterDirection();
+    }
+
     monster.lastMove = now;
   }
 }
@@ -140,6 +199,7 @@ function checkCollisions() {
     return;
   }
 }
+
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
