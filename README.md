@@ -7,6 +7,8 @@
 
 🎆 EVERYONE CAN BE A GAME DEVELOPER WITH GPT!
 
+<img src="./gifs/robot_game.png" width="800"  style="display: block; margin: 0 auto"/>
+
 💥 GPT-4's incredible code generation capabilities enable game development using simple text prompts.
 
 🎮 We try to gather all text prompts that can generate entertaining games in one shot.
